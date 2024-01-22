@@ -85,13 +85,14 @@ def gameover():
 
         WIN.blit(gameover_image, (0, 0))  
 
-        game_over_text = game_over_font.render("Game Over!", True, (255, 0, 0))
+        gameover_text = gameover.font.render("Game Over!", True, (255, 0, 0))
         retry = game_over_font.render("Press 'R' to retry or 'Q' to quit", True, (0, 0, 0))
 
-        WIN.blit(game_over_text, (width // 2 - game_over_text.get_width() // 2, 200))
+        WIN.blit(gameover_text, (width // 2 - gameover_text.get_width() // 2, 200))
         WIN.blit(retry, (width // 2 - retry.get_width() // 2, 300))
-
         pygame.display.flip()
+
+
 
         keys = pygame.key.get_pressed()
         if keys[K_r]:
@@ -106,32 +107,42 @@ def gameover():
 def upgrade_screen(): 
     global bullet_damage, player_velocity, player_health
 
+    
     upgrade_font = pygame.font.SysFont("blackadder", 50, True)
+
+
 
     while True: 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
-        WIN.fill((0, 0, 0))
-        upgrade_text = upgrade_font.render("Choose an Upgrade:", True, (255, 255, 255))
-        bullet_text = upgrade_font.render(f"1. Increase Bullet Damage (Current: {bullet_damage})", True, (255, 255, 255))
-        velocity_text = upgrade_font.render(f"2. Increase Player Velocity (Current: {player_velocity})", True, (255, 255, 255))
-        health_text = upgrade_font.render(f"3. Increase Player Health (Current: {player_health})", True, (255, 255, 255))
 
-        WIN.blit(upgrade_text, (width // 2 - upgrade_text.get_width() // 2, 100))
-        WIN.blit(bullet_text, (width // 2 - bullet_text.get_width() // 2, 250))
-        WIN.blit(velocity_text, (width // 2 - velocity_text.get_width() // 2, 350))
-        WIN.blit(health_text, (width // 2 - health_text.get_width() // 2, 450))
+
+
+        WIN.fill((0,0, 0))
+
+        upgrade = upgrade_font.render("Choose an Upgrade:", True, (255,255,255))
+        
+        bullet = upgrade_font.render(f"1. Increase Bullet Damage (Current: {bullet_damage})", True, (255,255, 255))
+        
+        velocity = upgrade_font.render(f"2. Increase Player Velocity (Current: {player_velocity})", True, (255, 255, 255))
+        
+        health = upgrade_font.render(f"3. Increase Player Health (Current: {player_health})",True, (255,255, 255))
+
+        WIN.blit(upgrade, (width // 2 - upgrade.get_width() // 2, 100))
+        WIN.blit(bullet, (width // 2 -bullet.get_width() // 2, 250))
+        WIN.blit(velocity, (width // 2 - velocity.get_width() //2, 350))
+        WIN.blit(health, (width // 2 - health.get_width()// 2, 450))
 
         pygame.display.flip()
         player_health = 100
         keys = pygame.key.get_pressed()
         if keys[K_1]:
-            bullet_damage += 5
+            bullet_damage +=5
             break
         elif keys[K_2]:
-            player_velocity += 1
+            player_velocity +=1
             break
         elif keys[K_3]:
             player_health += 20 
