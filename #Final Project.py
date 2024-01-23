@@ -58,7 +58,7 @@ def start():
 
         WIN.blit(start_image, (0, 0)) 
 
-        start_text = start_font.render("Monster Hunter!", True, (0, 0, 0))
+        start_text = start_font.render("Monster Hunter!", True, (255, 255, 255))
         start = start_font.render("Press 'S' to start or 'Q' to quit", True, (0, 0, 0))
 
         WIN.blit(start_text, (width // 2 - start_text.get_width() // 2, 200))
@@ -75,7 +75,7 @@ def start():
 
         clock.tick(FPS)
 def gameover():
-    game_over_font = pygame.font.SysFont("vivaldi", 100, True)
+    gameover_font = pygame.font.SysFont("vivaldi", 100, True)
 
     while True:
         for event in pygame.event.get():
@@ -86,7 +86,7 @@ def gameover():
         WIN.blit(gameover_image, (0, 0))  
 
         gameover_text = gameover.font.render("Game Over!", True, (255, 0, 0))
-        retry = game_over_font.render("Press 'R' to retry or 'Q' to quit", True, (0, 0, 0))
+        retry = gameover_font.render("Press 'R' to retry or 'Q' to quit", True, (0, 0, 0))
 
         WIN.blit(gameover_text, (width // 2 - gameover_text.get_width() // 2, 200))
         WIN.blit(retry, (width // 2 - retry.get_width() // 2, 300))
