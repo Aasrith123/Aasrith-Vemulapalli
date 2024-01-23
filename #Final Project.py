@@ -85,7 +85,7 @@ def gameover():
 
         WIN.blit(gameover_image, (0, 0))  
 
-        gameover_text = gameover.font.render("Game Over!", True, (255, 0, 0))
+        gameover_text = gameover_font.render("Game Over!", True, (255, 0, 0))
         retry = gameover_font.render("Press 'R' to retry or 'Q' to quit", True, (0, 0, 0))
 
         WIN.blit(gameover_text, (width // 2 - gameover_text.get_width() // 2, 200))
